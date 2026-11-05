@@ -1,5 +1,8 @@
 # Robert Hyde & Co. website (concept prototype)
 
+**Live (concept, noindex):** https://rdodeployme.github.io/robert-hyde-co/
+**Repo:** github.com/rdodeployme/robert-hyde-co (public). Local copy on Ryan's Mac: ~/Documents/GitHub/robert-hyde-co (GitHub Desktop; fetch/pull to update it).
+
 A static, multi-page site. No build tools are needed to host it: upload the folder as-is to GitHub Pages or any static host.
 
 ## Pages
