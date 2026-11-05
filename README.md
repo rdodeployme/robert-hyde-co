@@ -41,3 +41,11 @@ Content lives in `_build/build.py`. Change it, then run `python3 _build/build.py
 - **Depth:** the 1858 photos on the home and story heroes move in 3D with the mouse, and drift slowly on phones (WebGL; the plain photo shows if WebGL is unavailable).
 - **Intro:** a darkroom iris reveal ("Melbourne, 1858"), shown once per visit and skipped with reduced motion.
 - **Page transitions:** pages cross-fade and the logo holds its place between pages (Chrome and Edge now; Safari 18.2+).
+
+## v4: polish pass
+- **One palette:** warm paper (#EDE6DA) and warm ink (#15120E), with aged copper as the only accent. The verdigris green buttons and the cool greys are gone.
+- **One serif:** Newsreader for every heading. Zilla Slab stays only for the lettering on the token.
+- **One label style:** small uppercase copper kicker with a rule. It's used for years, sections and tags.
+- **Home in three acts:** the cinema (1858 to today), then the business on paper (what we buy, how selling works, trade), then the archive on ink (500 tons, Bourke Street then and now, the token).
+- **Token:** aged copper rather than bright orange.
+- **Publishing:** Pages serves from `gh-pages`. Push to both `main` and `gh-pages`.
