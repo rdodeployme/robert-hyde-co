@@ -31,17 +31,17 @@
   function drawFace(side, mode, N) {
     var c = document.createElement("canvas"); c.width = c.height = N;
     var x = c.getContext("2d"), s = N / 200, cx = N / 2;
-    var raised = mode === "height" ? "#ffffff" : "#E0A271";
-    var field = mode === "height" ? "#3a3a3a" : "#9A5326";
+    var raised = mode === "height" ? "#ffffff" : "#C48A5E";
+    var field = mode === "height" ? "#3a3a3a" : "#6F3D1F";
     // field
     x.fillStyle = field; x.fillRect(0, 0, N, N);
     if (mode === "colour") {
       var g = x.createRadialGradient(cx * .7, cx * .6, N * .05, cx, cx, N * .55);
-      g.addColorStop(0, "rgba(255,190,130,.28)"); g.addColorStop(1, "rgba(60,20,5,.35)");
+      g.addColorStop(0, "rgba(240,180,130,.16)"); g.addColorStop(1, "rgba(35,14,4,.5)");
       x.fillStyle = g; x.fillRect(0, 0, N, N);
       // fine patina speckle
       for (var k = 0; k < 2600; k++) {
-        x.fillStyle = Math.random() < .5 ? "rgba(40,15,4,.10)" : "rgba(255,200,150,.07)";
+        x.fillStyle = Math.random() < .6 ? "rgba(35,14,4,.16)" : (Math.random() < .5 ? "rgba(90,110,80,.07)" : "rgba(240,190,140,.06)");
         x.fillRect(Math.random() * N, Math.random() * N, 1.5 * s, 1.5 * s);
       }
     }
@@ -129,10 +129,10 @@
     function faceMat(side) {
       return new THREE.MeshStandardMaterial({
         map: tex(drawFace(side, "colour", N), true), bumpMap: tex(drawFace(side, "height", N)), bumpScale: 0.055,
-        metalness: 0.9, roughness: 0.38, color: 0xffffff
+        metalness: 0.85, roughness: 0.5, color: 0xf2e6da
       });
     }
-    var edge = new THREE.MeshStandardMaterial({ color: 0xB06A36, metalness: 0.95, roughness: 0.32 });
+    var edge = new THREE.MeshStandardMaterial({ color: 0x8C5634, metalness: 0.9, roughness: 0.45 });
     var front = faceMat("front"), back = faceMat("back");
     // CylinderGeometry groups: 0 side, 1 top, 2 bottom
     var geo = new THREE.CylinderGeometry(1.9, 1.9, 0.2, 128, 1);
@@ -148,9 +148,9 @@
     if (uv.bflip) [back.map, back.bumpMap].forEach(function (t) { t.repeat.set(-1, 1); });
 
     scene.add(new THREE.HemisphereLight(0xfff1e2, 0x1a1410, 0.55));
-    var key = new THREE.DirectionalLight(0xffe0c0, 2.1); key.position.set(-3, 4, 5); scene.add(key);
-    var rim = new THREE.DirectionalLight(0x9fd0c4, 0.9); rim.position.set(4, -2, -3); scene.add(rim);
-    var glint = new THREE.PointLight(0xffffff, 1.4, 20); glint.position.set(2.5, 1.5, 4); scene.add(glint);
+    var key = new THREE.DirectionalLight(0xffe6cc, 1.75); key.position.set(-3, 4, 5); scene.add(key);
+    var rim = new THREE.DirectionalLight(0xc9b49a, 0.6); rim.position.set(4, -2, -3); scene.add(rim);
+    var glint = new THREE.PointLight(0xfff4e6, 0.9, 20); glint.position.set(2.5, 1.5, 4); scene.add(glint);
 
     var state = { y: 0, x: -0.12, targetY: opts.startY || 0, targetX: -0.12, idle: opts.idle !== false, drag: false };
     var visible = true, raf = 0, last = performance.now();

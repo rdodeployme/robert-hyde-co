@@ -72,9 +72,9 @@ def page(fname, title, desc, body, extra_head="", cls="", motion=False):
 <meta property="og:title" content="{esc(full_title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:image" content="assets/img/og.jpg">
-<meta name="theme-color" content="#1A1E22">
+<meta name="theme-color" content="#15120E">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/zilla-slab-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 {extra_head}
 </head>
@@ -234,20 +234,76 @@ home = f'''
   </div>
 </section>
 
-<section class="band scale" aria-labelledby="scale-h">
-  <div class="wrap scale-grid">
-    <div>
-      <p class="kicker dark">The Age, 19 January 1863</p>
-      <h2 id="scale-h"><span class="big">500 tons</span> of rags a year, shipped to England.</h2>
-      <p class="lede">That was Hyde&rsquo;s trade in 1863, along with zinc and broken glass, sorted in Melbourne by a team of sorters and sent to England by sail. It weighs about as much as 330 family cars.</p>
-      <p class="small muted">Tonnage as reported by <em>The Age</em>; the car comparison is ours, at about 1.5 tonnes a car. <a href="{SRC["age1863"][1]}">Read the report on Trove</a>.</p>
+<section class="band paper buy-band" aria-labelledby="buy-h">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker dark">The trade today</p>
+      <h2 id="buy-h">What we buy</h2>
+      <p>Steel, copper, brass, aluminium and whole items made of them, priced by metal, grade and weight on the day.</p>
     </div>
-    <div class="cars" data-cars role="img" aria-label="330 small car shapes, roughly the weight of 500 tons">{CARS}</div>
+    <div class="split">
+      <ul class="mat-list">
+        <li><a href="what-we-buy.html#steel"><h3>Steel and iron</h3><span>Whitegoods, hot water services, roofing iron, shelving, pipe and offcuts</span><b class="go" aria-hidden="true">&rarr;</b></a></li>
+        <li><a href="what-we-buy.html#nonferrous"><h3>Copper, brass and aluminium</h3><span>Pipe, wire, fittings, window frames, stainless sinks</span><b class="go" aria-hidden="true">&rarr;</b></a></li>
+        <li><a href="what-we-buy.html#vehicles"><h3>Cars, trailers and caravans</h3><span>Collected by tilt tray, with proof of ownership</span><b class="go" aria-hidden="true">&rarr;</b></a></li>
+        <li><a href="what-we-buy.html#farm"><h3>Machinery and farm metal</h3><span>Old equipment, containers, site offices, wheels</span><b class="go" aria-hidden="true">&rarr;</b></a></li>
+      </ul>
+      <figure class="photo">
+        <img src="assets/img/loose-steel.jpg" width="1500" height="843" alt="A steel bin filled with loose, tangled steel wire after separation" loading="lazy">
+        <figcaption>Loose steel after separation, before baling.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
+<section class="band paper ruled" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="section-head row">
+      <h2 id="how-h">How selling works</h2>
+      <a class="btn" href="sell.html">Start a request</a>
+    </div>
+    <ol class="steps">
+      <li><h3>Tell us what you have</h3><p>Send a few details and photos online. It takes about two minutes.</p></li>
+      <li><h3>Get a price and a time</h3><p>We confirm a guide price and book a pickup or a drop-off.</p></li>
+      <li><h3>Weighed, then paid by EFT</h3><p>Every load is weighed. Bring ID, which Victorian law requires us to record. Cash for scrap metal is banned.</p></li>
+    </ol>
+  </div>
+</section>
 
-<section class="band tn-band" aria-labelledby="tn-h">
+<section class="band paper ruled" aria-labelledby="trade-h">
+  <div class="wrap split center">
+    <figure class="photo">
+      <img src="assets/img/steel-bales-forklift.jpg" alt="A forklift carries a bale of compressed steel past stacked bales in a warehouse" loading="lazy">
+      <figcaption>Baled steel, ready to ship.</figcaption>
+    </figure>
+    <div>
+      <p class="kicker dark">Trade and business</p>
+      <h2 id="trade-h">For workshops, builders, farms and sites</h2>
+      <p class="lede">Regular metal coming off your site? We can place bins, collect on a schedule and send a statement for every load.</p>
+      <div class="actions"><a class="btn ghost" href="trade.html">Trade and business</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band night archive-band scale" aria-labelledby="arc-h">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">From the archive</p>
+      <h2 id="arc-h">The trade was here first</h2>
+      <p>Robert Hyde &amp; Co. was buying and shipping Melbourne&rsquo;s cast-offs a century and a half before anyone called it recycling.</p>
+    </div>
+    <div class="scale-grid">
+      <div>
+        <p class="stat"><span class="big">500</span><span class="unit">tons a year</span></p>
+        <p class="lede">of rags, zinc and broken glass, sorted in Melbourne and shipped to England by sail. <em>The Age</em>, 19 January 1863. That&rsquo;s about the weight of 330 family cars.</p>
+        <p class="small muted">The car comparison is ours, at about 1.5 tonnes a car. <a href="{SRC["age1863"][1]}">Read the report on Trove</a>.</p>
+      </div>
+      <div class="cars" data-cars role="img" aria-label="330 small car shapes, roughly the weight of 500 tons">{CARS}</div>
+    </div>
+  </div>
+</section>
+
+<section class="band night ruled tn-band" aria-labelledby="tn-h">
   <div class="wrap">
     <div class="section-head">
       <h2 id="tn-h">Same street, 168 years apart</h2>
@@ -265,40 +321,8 @@ home = f'''
     </figure>
   </div>
 </section>
-<section class="band buy-band" aria-labelledby="buy-h">
-  <div class="wrap split">
-    <div>
-      <div class="section-head">
-        <h2 id="buy-h">What we buy</h2>
-        <p>Steel, copper, brass, aluminium and whole items made of them, priced by metal, grade and weight on the day.</p>
-      </div>
-      <ul class="mat-list">
-        <li><a href="what-we-buy.html#steel"><h3>Steel and iron</h3><span>Whitegoods, hot water services, roofing iron, shelving, pipe and offcuts</span><b class="go">See items</b></a></li>
-        <li><a href="what-we-buy.html#nonferrous"><h3>Copper, brass and aluminium</h3><span>Pipe, wire, fittings, window frames, stainless sinks</span><b class="go">See items</b></a></li>
-        <li><a href="what-we-buy.html#vehicles"><h3>Cars, trailers and caravans</h3><span>Collected by tilt tray, with proof of ownership</span><b class="go">See items</b></a></li>
-        <li><a href="what-we-buy.html#farm"><h3>Machinery and farm metal</h3><span>Old equipment, containers, site offices, wheels</span><b class="go">See items</b></a></li>
-      </ul>
-    </div>
-    <figure class="photo tall">
-      <img src="assets/img/loose-steel.jpg" width="1500" height="843" alt="A steel bin filled with loose, tangled steel wire after separation" loading="lazy">
-      <figcaption>Loose steel after separation, before baling.</figcaption>
-    </figure>
-  </div>
-</section>
 
-<section class="band" aria-labelledby="how-h">
-  <div class="wrap">
-    <div class="section-head"><h2 id="how-h">How selling works</h2></div>
-    <ol class="steps">
-      <li><h3>Tell us what you have</h3><p>Send a few details and photos online. It takes about two minutes.</p></li>
-      <li><h3>Get a price and a time</h3><p>We confirm a guide price and book a pickup or a drop-off.</p></li>
-      <li><h3>Weighed, then paid by EFT</h3><p>Every load is weighed. Bring ID, which Victorian law requires us to record. Cash for scrap metal is banned.</p></li>
-    </ol>
-    <div class="actions"><a class="btn" href="sell.html">Start a request</a></div>
-  </div>
-</section>
-
-<section class="band night token-band" aria-labelledby="tok-h">
+<section class="band night ruled token-band" aria-labelledby="tok-h">
   <div class="wrap teaser">
     <div class="coin big" data-coin data-coin-drag>{token("tz", label="The 1857 token. Drag to turn it.")}</div>
     <div>
@@ -307,16 +331,6 @@ home = f'''
       <p class="lede">Hyde&rsquo;s halfpenny reads <em>General Marine Store. Shippers of rags, glass, metals &amp;c.</em> on one side, and <em>Peace &amp; Plenty</em> on the other. Ours is a simplified redraw of the original held by Museums Victoria. Drag it round.</p>
       <div class="actions"><a class="btn" href="story.html">Open the time machine</a></div>
     </div>
-  </div>
-</section>
-
-<section class="fullbleed" aria-labelledby="trade-h">
-  <img src="assets/img/steel-bales-forklift.jpg" alt="A forklift carries a bale of compressed steel past stacked bales in a warehouse" loading="lazy">
-  <div class="scrim"></div>
-  <div class="wrap fb-in">
-    <h2 id="trade-h">For workshops, builders, farms and sites</h2>
-    <p class="lede">Regular metal coming off your site? We can place bins, collect on a schedule and send a statement for every load.</p>
-    <div class="actions"><a class="btn" href="trade.html">Trade and business</a></div>
   </div>
 </section>
 '''
@@ -404,7 +418,7 @@ MAP = f"""
   </div>
 </section>
 
-<section class="band tn-band" aria-labelledby="pier-h">
+<section class="band paper tn-band" aria-labelledby="pier-h">
   <div class="wrap">
     <div class="section-head">
       <h2 id="pier-h">The pier, then and now</h2>
@@ -439,7 +453,7 @@ story = page_hero("bourke-st-1858.jpg", "The time machine",
 </div>
 
 {MAP}
-<section class="band" aria-labelledby="ms-h">
+<section class="band paper ruled" aria-labelledby="ms-h">
   <div class="wrap split center">
     <div>
       <h2 id="ms-h">What was a marine store?</h2>
@@ -453,7 +467,7 @@ story = page_hero("bourke-st-1858.jpg", "The time machine",
   </div>
 </section>
 
-<section class="band on-zinc2" aria-labelledby="src-h">
+<section class="band paper ruled" aria-labelledby="src-h">
   <div class="wrap">
     <h2 id="src-h" style="margin-bottom:1.25rem">Sources</h2>
     <ol class="sources">
